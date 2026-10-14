@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevora — A unified volunteering and NGO platform</title>
+<meta name="description" content="Sevora bridges people who want to make a difference with NGOs that need support: verified opportunities, online & offline volunteering, donations, certificates and community reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#home"><span class="logo-mark">S</span> Sevora</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" data-i18n="home">Home</a>
+      <a href="#marketplace" data-i18n="market">Marketplace</a>
+      <a href="#virtual" data-i18n="virtual">Virtual</a>
+      <a href="#events" data-i18n="events">Events</a>
+      <a href="#portfolio" data-i18n="portfolio">Portfolio</a>
+      <a href="#donations" data-i18n="donate">Donations</a>
+      <a href="#reporting" data-i18n="report">Report</a>
+      <a href="#ngos" data-i18n="ngos">NGOs</a>
+      <a href="#impact">Impact</a>
+      <a class="cta" href="#marketplace">Get started</a>
+    </nav>
+    <select id="langSelect" class="lang-select" aria-label="Language">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ta">தமிழ்</option>
+    </select>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-shape"></div>
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--brand);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;">Unified volunteering &amp; NGO platform</span>
+        <h1>Bridge the gap between <span class="grad">people who care</span> and NGOs that need support.</h1>
+        <p class="lead">Sevora connects students, volunteers, donors and citizens with verified NGOs — online or on-ground — with transparent donations, credible certificates and community reporting.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#marketplace">Find opportunities</a>
+          <a class="btn btn-ghost" href="#reporting">Report a need</a>
+          <button class="btn btn-sm" style="background:#e8f3f0;color:var(--brand)" onclick="researchNgoDemo()">NGO research (TinyFish)</button>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>12.4k</b><span>Volunteers</span></div>
+          <div class="stat"><b>98k</b><span>Verified hours</span></div>
+          <div class="stat"><b>316</b><span>Verified NGOs</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <h3 style="margin:0 0 12px">Hi! I'm a student and need community-service hours, but I can't travel. What can I do?</h3>
+          <div class="msg bot" style="max-width:100%">Welcome! You can explore online volunteering that fits your schedule.
+            <div class="match"><b>Social Media Volunteer</b> · GreenEarth Foundation<br><span style="color:var(--muted);font-size:12px">online · 4h · Environment · ✓ verified</span></div>
+            <div class="match"><b>Content Writing Volunteer</b> · Shiksha Sangam<br><span style="color:var(--muted);font-size:12px">online · 3h · Education · ✓ verified</span></div>
+            <div class="match"><b>Short task: Tag Photos</b> · GreenEarth Foundation<br><span style="color:var(--muted);font-size:12px">online · 0.5h · Environment · ✓ verified</span></div>
+          </div>
+          <p class="muted" style="font-size:12px;margin-top:10px">Illustrative matches. The live chatbot (bottom-right) queries the verified database.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A. Marketplace -->
+  <section id="marketplace">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Module A</span>
+        <h2>Smart volunteering marketplace</h2>
+        <p>Filter by location, cause, skills, duration and online/offline mode. Matched to your skills and availability.</p>
+      </div>
+      <div class="filters">
+        <div class="filter"><label>Search</label><input id="fSearch" placeholder="title, NGO, keyword"></div>
+        <div class="filter"><label>Cause</label>
+          <select id="fCause"><option value="">All causes</option></select>
+        </div>
+        <div class="filter"><label>Mode</label>
+          <select id="fMode"><option value="">All</option><option value="online">Online</option><option value="offline">On-ground</option></select>
+        </div>
+        <div class="filter"><label>Skill</label>
+          <select id="fSkill"><option value="">Any skill</option></select>
+        </div>
+        <div class="filter"><label>Max hours</label>
+          <select id="fHours"><option value="">Any</option><option value="0.5">≤ 0.5h</option><option value="2">≤ 2h</option><option value="4">≤ 4h</option><option value="8">≤ 8h</option></select>
+        </div>
+      </div>
+      <div id="oppGrid" class="opp-grid"></div>
+    </div>
+  </section>
+
+  <!-- B. Virtual hub -->
+  <section id="virtual" style="background:#fff">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Module B</span>
+        <h2>Virtual volunteering hub</h2>
+        <p>Contribute without leaving home — design, writing, research, translation, marketing, tutoring and more.</p>
+      </div>
+      <div id="hubGrid" class="hub-grid"></div>
+    </div>
+  </section>
+
+  <!-- C. Events -->
+  <section id="events">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Module C</span>
+        <h2>Offline events &amp; volunteering</h2>
+        <p>Discover nearby NGOs, register for drives, reserve tickets, get directions and attendance confirmation.</p>
+      </div>
+      <div id="eventGrid" class="event-list"></div>
+    </div>
+  </section>
+
+  <!-- D. Portfolio -->
+  <section id="portfolio" style="background:#fff">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Module D</span>
+        <h2>Volunteer portfolio &amp; certificates</h2>
+        <p>Completed tasks, verified hours, skills gained and NGO-issued certificates — issued only after the NGO confirms completion.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div id="portfolioProfile" class="profile-card"></div>
+        <div>
+          <div class="module">
+            <h3 style="margin:0 0 12px">Completed tasks</h3>
+            <div id="completedList" class="cert-list"></div>
+          </div>
+          <div class="module" style="margin-top:16px">
+            <h3 style="margin:0 0 12px">Verified certificates</h3>
+            <div id="certList" class="cert-list"></div>
+            <p class="muted" style="font-size:12px;margin-top:10px">Certificates become credible because they require NGO confirmation of completed work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E. Donations -->
+  <section id="donations">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Module E</span>
+        <h2>Transparent donations</h2>
+        <p>Verified NGO profiles, clear campaign purposes, payment confirmations, NGO-issued receipts and progress updates.</p>
+      </div>
+      <div id="campaignGrid" class="donation-grid"></div>
+      <div class="transparency">
+        <b>Transparency promise:</b> Every campaign shows its purpose, goal, progress and updates on how funds were used. Receipts are issued by the appropriate organization; tax-related claims are verified, never promised automatically.
+      </div>
+    </div>
+  </section>
+
+  <!-- F. Reporting -->
+  <section id="reporting" style="background:#fff">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Module F</span>
+        <h2>Community help &amp; reporting</h2>
+        <p>Report injured or abandoned animals, people needing food or shelter and local issues. Routed to relevant NGOs with moderation, privacy protection and human review.</p>
+      </div>
+      <div class="report-grid">
+        <form id="reportForm" class="report-form">
+          <h3 style="margin:0 0 16px">Submit a report</h3>
+          <div class="form-group"><label>Report type</label>
+            <select id="rType">
+              <option>Injured animal</option><option>Abandoned animal</option><option>Person needs food/shelter</option><option>Local community issue</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Location (area, city)</label><input id="rLoc" required placeholder="e.g. Sector 18, Noida"></div>
+          <div class="form-group"><label>Description</label><textarea id="rDesc" required placeholder="What you observed, when, any urgency..."></textarea></div>
+          <div class="form-group"><label>Urgency</label><select><option>Low</option><option>Medium</option><option>High</option><option>Emergency</option></select></div>
+          <div class="form-group"><label>Contact (optional)</label><input placeholder="phone or email"></div>
+          <button type="submit" class="btn btn-primary">Submit report</button>
+          <p class="muted" style="font-size:12px;margin-top:10px">Reports are moderated. Privacy protected. Human review before verification. Urgent harm? Contact local emergency services directly.</p>
+        </form>
+        <div class="report-status">
+          <h3 style="margin:0 0 12px">Report tracker</h3>
+          <div id="statusList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NGOs -->
+  <section id="ngos">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Verified NGOs</span>
+        <h2>NGO directory</h2>
+        <p>Verified organizational identity, registration where applicable, contact info and documentation. Verified facts are clearly distinguished from unchecked info. NGO records can be prepared with TinyFish web research for human review.</p>
+        <button id="researchBtn" class="btn btn-ghost btn-sm" style="margin-top:14px">Simulate NGO research (TinyFish)</button>
+      </div>
+      <div id="ngoGrid" class="ngo-grid"></div>
+    </div>
+  </section>
+
+  <!-- Impact -->
+  <section id="impact" style="background:#fff">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Impact</span>
+        <h2>Impact dashboard</h2>
+        <p>Meaningful measures: completed tasks, verified hours, supported campaigns and NGO-reported outcomes.</p>
+      </div>
+      <div id="impactGrid" class="impact-grid"></div>
+      <div style="margin-top:28px">
+        <h4 style="margin:0 0 6px">Verified hours per month</h4>
+        <div id="chartBars" class="chart-bar"></div>
+      </div>
+      <div style="margin-top:20px">
+        <h4 style="margin:0 0 8px">Recognition badges</h4>
+        <div id="badges"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnerships -->
+  <section id="partners">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Extraordinary</span>
+        <h2>College partnerships &amp; accessibility</h2>
+        <p>Colleges can approve eligible opportunities, track completed service hours and verify certificates. The platform is built mobile-first with screen-reader support, lightweight pages for slow connections and text alternatives.</p>
+      </div>
+      <div class="hub-grid">
+        <div class="hub-card"><div class="icon">🎓</div><h4>College dashboard</h4><p>Approve opportunities, track hours, verify certificates for students.</p></div>
+        <div class="hub-card"><div class="icon">♿</div><h4>Accessibility</h4><p>Mobile-first, screen-reader friendly, low-bandwidth, clear typography.</p></div>
+        <div class="hub-card"><div class="icon">🔒</div><h4>Privacy &amp; moderation</h4><p>Reports moderated, data protected, human review before verification.</p></div>
+        <div class="hub-card"><div class="icon">🤖</div><h4>TinyFish integration</h4><p>Web search + fetch for NGO discovery &amp; research; chatbot runs on verified DB first.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <a class="logo" href="#home" style="color:#fff;margin-bottom:10px;display:inline-flex"><span class="logo-mark">S</span> Sevora</a>
+        <p style="font-size:14px">Bridging people who want to make a difference with NGOs that need support — through technology, transparency and accessible volunteering.</p>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#virtual">Virtual hub</a>
+        <a href="#events">Events</a>
+        <a href="#donations">Donations</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#reporting">Report a need</a>
+        <a href="#ngos">NGO directory</a>
+        <a href="#impact">Impact</a>
+      </div>
+      <div>
+        <h5>Safety</h5>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Moderation</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="bottom">© 2026 Sevora · Built for the IITD Hackathon · Prototype with illustrative data.</div>
+  </div>
+</footer>
+
+<!-- Cause/skill option population -->
+<script>
+  // populate filter selects after data loads
+</script>
+
+<!-- Modal -->
+<div id="modalBackdrop" class="modal-backdrop">
+  <div class="modal">
+    <button id="modalClose" class="close" aria-label="Close">&times;</button>
+    <h3 id="modalTitle">Modal</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Chatbot -->
+<button id="chatFab" class="chat-fab" aria-label="Open chat assistant">💬</button>
+<div id="chatPanel" class="chat-panel">
+  <div class="chat-header">
+    <div><b>Sevora Assistant</b><div style="font-size:11px;opacity:.85">Ask in any language (demo)</div></div>
+    <button onclick="toggleChat()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer" aria-label="Close chat">&times;</button>
+  </div>
+  <div id="chatBody" class="chat-body"></div>
+  <div class="chat-chips">
+    <span class="chip" data-q="I'm a student, can volunteer online 2 hours a week">Student, 2h/week online</span>
+    <span class="chip" data-q="30 min short task remote">30-min task</span>
+    <span class="chip" data-q="nearby events in Delhi">Events in Delhi</span>
+    <span class="chip" data-q="how do certificates work">Certificates</span>
+  </div>
+  <div class="chat-input">
+    <input id="chatInput" placeholder="Type your question...">
+    <button id="chatSend" class="btn btn-primary btn-sm">Send</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  // populate filter options
+  (function(){
+    const D = window.SEVORA;
+    const cSel = document.getElementById('fCause');
+    D.causes.forEach(c=>{ const o=document.createElement('option'); o.value=c; o.textContent=c; cSel.appendChild(o); });
+    const sSel = document.getElementById('fSkill');
+    D.skills.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s; sSel.appendChild(o); });
+  })();
+</script>
+</body>
+</html>
